@@ -1,0 +1,24 @@
+{% extends "partials/base.html" %}
+{% block content %}
+<div class="container-sm py-3">
+  <div class="row">
+    {% for video in videos %}
+      <div class="col-12 col-sm-6 col-md-3 mb-4">
+        <div class="card video-card h-100">
+          <video controls class="w-100 rounded-top" style="height: 250px; object-fit: cover;">
+            <source src="{{ video.video_file.url }}" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <div class="card-body">
+            <h4 class="card-title">{{ video.title }}</h4>
+            <p class="text-muted">{{ video.views }} views</p>
+            <a href="{% url 'core:video_detail' video.pk %}" class="btn btn-primary btn-sm">View Video</a>
+          </div>
+        </div>
+      </div>
+    {% empty %}
+      <p>No videos found.</p>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

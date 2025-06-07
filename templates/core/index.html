@@ -1,0 +1,100 @@
+{% extends "partials/base.html" %}
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>User Profiles</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+</head>
+<body>
+<div class="container mb-2 city-bg">
+  <h5 class="mb-2">Major Cities:</h5>
+  <div class="d-flex flex-wrap gap-2">
+    <a href="{% url 'core:index' %}" class="btn city-btn {% if not active_city %}active{% endif %}">All</a>
+    {% for city in cities %}
+      <a href="?q={{ city }}" class="btn city-btn {% if active_city == city %}active{% endif %}">
+        {{ city }}
+      </a>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="container-sm py-3">
+    <h4 id="#vip" class="mb-4 text-center">VIP Profiles</h4>
+    <div class="row row-cols-2 row-cols-md-4 g-2">
+        
+        {% for profile in vip_profiles %}
+        <div class="col">
+            <div class="card h-100 shadow-sm profile-card">
+                <img src="{{ profile.picture.url }}" class="card-img-top profile-img" alt="{{ profile.user.username }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ profile.user.get_full_name }}{% if not profile.user.get_full_name %}{{ profile.user.username }}{% endif %}, {{ profile.age }}</h5>
+                    <p class="card-text">
+                      <strong>City:</strong> {{ profile.city }}<br />
+                      <strong>Town:</strong> {{ profile.town }}<br />
+                      <strong>Phone:</strong> {{ profile.phone_number }}
+                    </p>
+                    <a href="tel:{{ profile.phone_number }}" class="btn btn-lilac call-btn">Call</a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p>No profiles found.</p>
+        {% endfor %}
+
+    </div>
+        <h4 id="regular" class="mb-4 text-center">Regular Profiles</h4>
+    <div class="row row-cols-2 row-cols-md-4 g-2">
+
+        {% for profile in regular_profiles %}
+        <div class="col">
+            <div class="card h-100 shadow-sm profile-card">
+                <img src="{{ profile.picture.url }}" class="card-img-top profile-img" alt="{{ profile.user.username }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ profile.user.get_full_name }}{% if not profile.user.get_full_name %}{{ profile.user.username }}{% endif %}, {{ profile.age }}</h5>
+                    <p class="card-text">
+                      <strong>City:</strong> {{ profile.city }}<br />
+                      <strong>Town:</strong> {{ profile.town }}<br />
+                      <strong>Phone:</strong> {{ profile.phone_number }}
+                    </p>
+                    <a href="tel:{{ profile.phone_number }}" class="btn btn-lilac call-btn">Call</a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p>No profiles found.</p>
+        {% endfor %}
+
+    </div>
+     <h4 id="basic" class="mb-4 text-center">Basic Profiles</h4>
+    <div class="row row-cols-2 row-cols-md-4 g-2">
+
+        {% for profile in basic_profiles %}
+        <div class="col">
+            <div class="card h-100 shadow-sm profile-card">
+                <img src="{{ profile.picture.url }}" class="card-img-top profile-img" alt="{{ profile.user.username }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ profile.user.get_full_name }}{% if not profile.user.get_full_name %}{{ profile.user.username }}{% endif %}, {{ profile.age }}</h5>
+                    <p class="card-text">
+                      <strong>City:</strong> {{ profile.city }}<br />
+                      <strong>Town:</strong> {{ profile.town }}<br />
+                      <strong>Phone:</strong> {{ profile.phone_number }}
+                    </p>
+                    <a href="tel:{{ profile.phone_number }}" class="btn btn-lilac call-btn">Call</a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p>No profiles found.</p>
+        {% endfor %}
+
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+{% endblock content %}

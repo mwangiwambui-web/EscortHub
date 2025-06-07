@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+    {% load static %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">ProfileHub</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'core:index' %}">Home</a>
+        </li>
+          <a class="nav-link active" href="{% url 'core:video_list' %}">Videos</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Profiles
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#vip">VIP</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#regular">Regular</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#basic">Basic</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="#contact" >Contact Us</a>
+        </li>
+      </ul>
+      <form method="get" class="mb-4">
+    <input type="text" name="q" placeholder="Search by city or town" class="form-control" value="{{ request.GET.q }}">
+</form>
+
+    </div>
+  </div>
+</nav>
+
+{% block content %}
+
+{% endblock content %}
+
+<footer class="custom-footer mt-5 border-top">
+  <div class="container p-4">
+    <div class="row">
+      <div id="contact" class="col-lg-4 col-md-6 mb-4 mb-md-0">
+        <h5 class="footer-heading">Contact Us</h5>
+        <p class="footer-text">
+          EscortHub<br>
+          Nairobi, Kenya<br>
+          Email: <a href="mailto:info@escorthub.com" class="footer-link">info@escorthub.com</a><br>
+          Phone: <a href="tel:+254712345678" class="footer-link">+254 112 103 012</a>
+        </p>
+      </div>
+
+      <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+        <h5 class="footer-heading">Quick Links</h5>
+        <ul class="list-unstyled mb-0">
+          <li><a href="#" class="footer-link">Home</a></li>
+          <li><a href="#" class="footer-link">Blogs</a></li>
+          <li><a href="#" class="footer-link">Escorts</a></li>
+          <li><a href="#" class="footer-link">Contact Us</a></li>
+        </ul>
+      </div>
+      
+      <div class="col-lg-4 col-md-12 text-center">
+        <h5 class="footer-heading">Follow Us</h5>
+        <div class="social-icons">
+          <a href="#" class="footer-icon"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="footer-icon"><i class="bi bi-twitter"></i></a>
+          <a href="#" class="footer-icon"><i class="bi bi-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom text-center p-3">
+    © 2025 EscortHub. All rights reserved.
+  </div>
+</footer>
+
+
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
