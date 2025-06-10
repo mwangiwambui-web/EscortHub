@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-sr+6z^*&7#ls0*-)p3aeda86=r6w$pasmx!ko6uaah%$9bn2b_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['EscortHub.onrender.com']
+ALLOWED_HOSTS = ['escorthub.onrender.com']
 
 
 # Application definition
