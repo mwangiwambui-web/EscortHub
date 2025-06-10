@@ -15,7 +15,7 @@ def signup(request):
             username = user_form.cleaned_data['username']
             email = user_form.cleaned_data.get('email')
 
-            # Check for existing username or email
+
             if User.objects.filter(username=username).exists():
                 user_form.add_error('username', 'A user with that username already exists.')
             elif email and User.objects.filter(email=email).exists():
