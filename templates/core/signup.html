@@ -1,0 +1,56 @@
+{% extends "partials/base.html" %}
+{% block content %}
+  <div class="auth-container">
+    <h2>Sign Up</h2>
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+
+      {% if user_form.non_field_errors %}
+        <div class="alert alert-danger">
+          {{ user_form.non_field_errors }}
+        </div>
+      {% endif %}
+      {% if profile_form.non_field_errors %}
+        <div class="alert alert-danger">
+          {{ profile_form.non_field_errors }}
+        </div>
+      {% endif %}
+
+      <div class="mb-3">
+        {{ user_form.username.label_tag }}
+        {{ user_form.username }}
+        {% for error in user_form.username.errors %}
+          <div class="text-danger small">{{ error }}</div>
+        {% endfor %}
+      </div>
+      <div class="mb-3">
+        {{ user_form.email.label_tag }}
+        {{ user_form.email }}
+        {% for error in user_form.email.errors %}
+          <div class="text-danger small">{{ error }}</div>
+        {% endfor %}
+      </div>
+      <div class="mb-3">
+        {{ user_form.password.label_tag }}
+        {{ user_form.password }}
+        {% for error in user_form.password.errors %}
+          <div class="text-danger small">{{ error }}</div>
+        {% endfor %}
+      </div>
+      <div class="mb-3">
+        {{ profile_form.phone_number.label_tag }}
+        {{ profile_form.phone_number }}
+        {% for error in profile_form.phone_number.errors %}
+          <div class="text-danger small">{{ error }}</div>
+        {% endfor %}
+      </div>
+      <button type="submit" class="btn btn-primary">Sign Up</button>
+    </form>
+    <div class="mt-3 text-center">
+      <span class="text-light">Already have an account?</span>
+      <a href="{% url 'core:login' %}" class="btn btn-outline-light ms-2 px-4 fw-bold" style="border-radius: 8px;">
+        Login
+      </a>
+    </div>
+  </div>
+{% endblock %}

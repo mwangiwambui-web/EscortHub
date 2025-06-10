@@ -48,6 +48,11 @@ body {
     border-radius: 0 0 8px 8px;
     animation: fadeIn 0.3s ease-in-out;
 }
+.btn-outline-light:hover,
+.btn-outline-light:focus {
+    color: #232336 !important;
+    background-color: #b388eb
+}
 
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(5px); }
@@ -205,4 +210,114 @@ html {
     max-height: 500px;
     object-fit: contain;
     background-color: #000;
+}
+
+/* Login & Signup Form Styling */
+.auth-container {
+    max-width: 400px;
+    margin: 40px auto;
+    background: #232336;
+    padding: 2rem 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(179, 136, 235, 0.08);
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+}
+
+.auth-container h2 {
+    color: #b388eb;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+}
+
+.auth-container label {
+    color: #bdbdbd;
+    font-weight: 500;
+}
+
+.auth-container .form-control {
+    background-color: #181824;
+    color: #e0e0e0;
+    border: 1px solid #b388eb;
+    margin-bottom: 1rem;
+}
+
+.auth-container .form-control:focus {
+    border-color: #6f42c1;
+    background-color: #232336;
+    color: #fff;
+}
+
+.auth-container .alert {
+    margin-bottom: 1rem;
+    border-radius: 8px;
+}
+
+.auth-container h2 {
+    color: #b388eb;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+}
+
+.auth-container form {
+    width: 100%;
+}
+
+.auth-container label {
+    color: #bdbdbd;
+    font-weight: 500;
+}
+
+.auth-container .form-control {
+    background-color: #181824;
+    color: #e0e0e0;
+    border: 1px solid #b388eb;
+    margin-bottom: 1rem;
+}
+
+.auth-container .form-control:focus {
+    border-color: #6f42c1;
+    background-color: #232336;
+    color: #fff;
+}
+
+.auth-container .btn-primary {
+    background-color: #b388eb;
+    border: none;
+    color: #232336;
+    font-weight: 600;
+    width: 100%;
+    transition: background 0.2s, color 0.2s;
+}
+
+.auth-container .btn-primary:hover {
+    background-color: #6f42c1;
+    color: #fff;
+}
+
+.auth-container .badge {
+    font-size: 1rem;
+    padding: 0.5em 1em;
+    border-radius: 8px;
+}
+
+.auth-container .alert-info {
+    background: #b388eb22;
+    color: #b388eb;
+    border: 1px solid #b388eb;
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+.auth-container ul {
+    padding-left: 1.2rem;
+    color: #e0e0e0;
+}
+
+.auth-container h4, .auth-container h5 {
+    color: #b388eb;
+    font-weight: 600;
 }

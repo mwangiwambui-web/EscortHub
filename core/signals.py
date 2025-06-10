@@ -5,6 +5,8 @@ from .models import Profile
 
 @receiver(post_save, sender=User)
 def create_or_update_user_profile(sender, instance, created, **kwargs):
-    if created:
-        Profile.objects.create(user=instance)
-    instance.profile.save()
+    # Only create a profile for non-admin users
+    if created and not instance.is_superuser and not instance.is_staff:
+        from .models import Profile
+        if not hasattr(instance, 'profile'):
+            Profile.objects.create(user=instance)

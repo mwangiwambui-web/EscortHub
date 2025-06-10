@@ -15,16 +15,16 @@ class Profile(models.Model):
     city = models.CharField(max_length=100, blank=True)
     town = models.CharField(max_length=100, blank=True)
     phone_number = models.CharField(max_length=20, blank=True)
-    category = models.CharField(max_length=10, choices=CATEGORY_CHOICES, default='Regular')
+    category = models.CharField(max_length=10, choices=CATEGORY_CHOICES, default='Basic')
 
     def __str__(self):
         return self.user.username
 
 class Video(models.Model):
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='videos', null=True, blank=True)
     title = models.CharField(max_length=255)
     video_file = models.FileField(upload_to='videos/')
     views = models.PositiveIntegerField(default=0)
     uploaded_at = models.DateTimeField(auto_now_add=True)
-
     def __str__(self):
         return self.title
